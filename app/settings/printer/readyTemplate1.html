@@ -1,0 +1,164 @@
+<!-- <div style='background: white; max-width: 650px;  font-family: Arial, sans-serif; font-size: 10px; margin: 10px auto; color:#000;'>
+  <div style='display:flex; gap: 5px; justify-content: space-between;'>
+    <div style=' max-width:60%;'>
+      <div>
+        <div style='font-size:16px; font-weight:700; margin-bottom:6px;'>{{data.companyName}}</div>
+        <div style='margin:2px 0;'>{{data.companyStreetAddress}}</div>
+        <div style='margin:2px 0;'>{{data.companyCityAddress}}, {{data.companyCountry}}</div>
+        <div style='margin:2px 0;'>BTW: {{data.companyVatNo}}</div>
+        <div style='margin:2px 0;'>EMAIL: {{data.companyEmail}}</div>
+        <div style='margin:2px 0;'>TEL: {{data.companyTelphone}}</div>
+        <div style='margin:2px 0;'><span>{{data.companyBankName1}}: {{data.companyBankAccount1}}</span>, <span>{{data.companyBankName2}}: {{data.companyBankAccount2}},</span></div>
+        <div style='margin:2px 0;'><span>{{data.companyBankName3}}: {{data.companyBankAccount3}}</span>, <span>{{data.companyBankName4}}: {{data.companyBankAccount4}}</span></div>
+      </div>
+    </div>
+    <div style='width:40%;'>
+      <div style='border:1px solid #000;'>
+        <div style='text-align: center; padding:6px 8px; font-weight:700; border-bottom:1px solid #000; background-color: #3b3b3b; color: white;'>
+          FACTURE : {{data.factureNumber}}
+        </div> 
+        <div style='display:flex;'>
+          <div style='text-align: center; font-size: 10px; font-weight: 600; flex:1; padding:6px 8px; border-right:1px solid #000;'>{{data.date}}</div>
+          <div style='text-align: center; font-size: 10px; font-weight: 600; flex:1; padding:6px 8px; border-right:1px solid #000;'>{{data.pageNumber}}</div>
+          <div style='text-align: center; font-size: 10px; font-weight: 600; flex:1; padding:6px 8px;'>Original</div>
+        </div>
+      </div>
+      <div style='border:1px solid #000; margin-top:2px; padding:5px 6px;'>
+        <div style='font-size: 10px;'>{{data.customerName}}</div>
+        <div style='font-size: 10px;'>{{data.customerAddress}}</div>
+        <div style='font-size: 10px;'>{{data.customerFOID}}</div>
+        <div style='font-size: 10px;'> {{data.customerNumber}}</div>
+      </div>
+    </div>
+  </div>
+  <div style='margin-top:16px;'>
+    {{{confirmInvoiceTableDemo}}}
+  </div>
+  <div style='align-items: flex-start; margin-top: 16px; display: flex; justify-content: space-between; width: 100%;'>    
+    <table style='width:20%; border-collapse:collapse; border: 1px solid black;'>
+      <thead>
+        <tr style='background:#f2f2f2; background-color: #3b3b3b'>
+          <th style='padding:4px; text-align:left; border:1px solid black; border-bottom: none; color: white;'>Taux %</th>
+          <th style='padding:4px; text-align:left; border:1px solid black; border-bottom: none; color: white;'>Base</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat1}}</td>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base1}}</td>
+        </tr>
+        <tr>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat2}}</td>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base2}}</td>
+        </tr>
+        <tr>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat3}}</td>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base3}}</td>
+        </tr>
+        <tr>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat4}}</td>
+          <td style='padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base4}}</td>
+        </tr>
+      </tbody>
+    </table>
+    {{{confirmPaymentMethodsDemo}}}
+    <div style='width: 35%; display: flex; flex-direction: column; align-items: end;'>
+      <p style='width: 70%; font-weight: 700; display: flex; justify-content: space-between;'><span>Tot. remise</span> <span>{{data.totalRemise}}</span></p>
+      <p style='width: 70%; font-weight: 700; display: flex; justify-content: space-between;'><span>Total HT</span> <span>{{data.totalHT}}</span></p>
+      <p style='width: 70%; font-weight: 700; display: flex; justify-content: space-between;'><span>TVA</span> <span>{{data.TVA}}</span></p>
+      <p style='width: 100%; border: 1px solid black; height: 50px; display: flex; justify-content: space-between; align-items: center;'>
+        <span style='font-weight: 700; background-color: #3b3b3b; width: 50%; height: 100%; color: white; display: flex; justify-content: center; align-items: center;'>Total TTC</span> 
+        <span style='font-weight: 700; width: 50%; height: 100%; display: flex; justify-content: center; align-items: center;'>{{data.totalTTC}} €</span></p>
+    </div>
+  </div>
+</div>
+
+ -->
+
+
+<div style='background: #ffffff; max-width: 600px;  font-family: Arial, sans-serif; font-size: 10px; margin: 10px auto; color:#000;'>
+  <div style='display:flex; gap: 5px; justify-content: space-between;'>
+    <div style=' max-width:60%;'>
+      <div>
+        <div style='font-size:16px; font-weight:700; margin-bottom:6px;'>{{data.companyName}}</div>
+        <div style='margin:2px 0;'>{{data.companyStreetAddress}}</div>
+        <div style='margin:2px 0;'>{{data.companyCityAddress}}, {{data.companyCountry}}</div>
+        <div style='margin:2px 0;'><span style='font-weight: 700;'>BTW: </span>{{data.companyVatNumber}}</div>
+        <div style='margin:2px 0;'><span style='font-weight: 700;'>EMAIL: </span>{{data.companyEmail}}</div>
+        <div style='margin:2px 0;'><span style='font-weight: 700;'>TEL: </span>{{data.companyTelphone}}</div>
+        <div style='margin:2px 0;'><span style='font-weight: 700;'>{{data.companyBankName1}}: </span>{{data.companyBankAccount1}},<span style='font-weight: 700;'>{{data.companyBankName2}}: </span>{{data.companyBankAccount2}},<span style='font-weight: 700;'>{{data.companyBankName3}}: </span>{{data.companyBankAccount3}}, <span style='font-weight: 700;'>{{data.companyBankName4}}: </span>{{data.companyBankAccount4}}</div>
+      </div>
+    </div>
+    <div style='width:40%;'> 
+      <div style='border:1px solid #000;'>
+        <div style='text-align: center; padding:6px 8px; font-weight:700; border-bottom:1px solid #000; background-color: #3b3b3b; color: white;'>
+          FACTURE : {{data.factureNumber}}
+        </div>
+        <div style='display:flex;'>
+          <div style=' font-size: 10px; font-weight: 600; flex:1; padding:2px; border-right:1px solid #000;'>Date: {{data.date}}</div>
+          <div style=' font-size: 10px; font-weight: 600; flex:1; padding:2px; border-right:1px solid #000;'>Code: {{data.customerCode}}</div>
+        </div>
+      </div>
+      <div style='border:1px solid #000; margin-top:2px; padding: 2px;;'>
+        <div style='font-size: 10px;'>{{data.customerName}}</div>
+        <div style='font-size: 10px;'>{{data.customerStreetAddress}}</div>
+        <div style='font-size: 10px;'>{{data.customerCityAddress}}, {{data.customerCountry}}</div>
+        <div style='font-size: 10px;'><span style='font-weight: 600;'>BTW: </span>{{data.customerVatNumber}}</div>
+        <div style='font-size: 10px;'><span style='font-weight: 600;'>FOID: </span>{{data.customerFOID}}</div>
+        <div style='font-size: 10px;'><span style='font-weight: 600;'>EID: </span>{{data.customerEID}}</div>
+      </div>
+    </div>
+  </div>
+  <div style='margin-top:5px;'>
+    {{{confirmInvoiceTableDemo}}}
+  </div>
+  <div style='align-items: flex-start; margin-top: 5px; display: flex; justify-content: space-between; width: 100%;'>
+    <table style='width:20%; border-collapse:collapse; border: 1px solid black;'>
+      <thead>
+        <tr style='background:#f2f2f2; background-color: #3b3b3b'>
+          <th style='font-size: 10px; padding:4px; text-align:left; border:1px solid black; border-bottom: none; color: white;'>Tax %</th>
+          <th style='font-size: 10px; padding:4px; text-align:left; border:1px solid black; border-bottom: none; color: white;'>Base</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat1}}</td>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base1}}</td>
+        </tr>
+        <tr>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat2}}</td>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base2}}</td>
+        </tr>
+        <tr>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat3}}</td>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base3}}</td>
+        </tr>
+        <tr>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none; width: 50%;'>{{data.vatRat4}}</td>
+          <td style='font-size: 10px; padding:4px; border:1px solid black; border-bottom: none; border-top: none;'>{{data.base4}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style='width:30%;'>
+      {{{confirmPaymentMethodsDemo}}}
+    </div>
+    <div style='width: 35%; display: flex; flex-direction: column; align-items: end;'>
+      <p style='margin: 0; width: 70%; font-weight: 700; display: flex; justify-content: space-between;'><span style='font-size: 10px;'>Total. remise</span> <span style='font-size: 10px;'>{{data.totalRemise}}</span></p>
+      <p style='margin-top: 4px; margin-bottom: 0; width: 70%; font-weight: 700; display: flex; justify-content: space-between;'><span style='font-size: 10px; '>Total HT</span> <span style='font-size: 10px; '>{{data.totalHT}}</span></p>
+      <p style='margin-top: 4px; margin-bottom: 0; width: 70%; font-weight: 700; display: flex; justify-content: space-between;'><span style='font-size: 10px; '>TVA</span> <span style='font-size: 10px; '>{{data.TVA}}</span></p>
+      <p style='margin-top: 4px; margin-bottom: 0; height: 30px; width: 100%; border: 1px solid black; display: flex; justify-content: space-between; align-items: center;'>
+        <span style='font-size: 10px; font-weight: 700; background-color: #3b3b3b; width: 50%; height: 100%; color: white; display: flex; justify-content: center; align-items: center;'>Total TTC</span> 
+        <span style='font-size: 10px; font-weight: 700; width: 50%; height: 100%; display: flex; justify-content: center; align-items: center;'>{{data.totalTTC}} €</span>
+      </p>
+      {{#if data.showBalanceDue}}
+      <p style='margin: 0; width: 80%; font-weight: 700; display: flex; justify-content: space-between;'>
+        <span style='font-size: 10px;'>Balance Due</span> 
+        <span style='font-size: 10px;'>{{data.balanceDue}}</span>
+      </p>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+
+
