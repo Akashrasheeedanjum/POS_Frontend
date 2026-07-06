@@ -24,7 +24,7 @@ interface CustomerDialogProps {
   open: boolean;
   mode: SelectType;
   onChange: (key: string, value: any) => void;
-  userData: Customer | null;
+  userData: Partial<Customer> | null;
   // setUserData: (userData: Supplier | null) => void;
   handleData: () => void
   onClose: () => void
@@ -41,13 +41,13 @@ const CustomerForm = ({
   onClose
 }: CustomerDialogProps) => {
   const title = mode === "edit" ? "Edit Customer" : "New Customer";
-  const formData = userData ?? {};
+  const formData: Partial<Customer> = userData ?? {};
 
     const customerSchema = mode === "edit" ? customerUpdateSchema : customerCreateSchema
     const [errors, setErrors] = React.useState<Record<string, string>>({});
     
 const handleSubmit = () => {
-  const dataToValidate = userData ?? formData;
+  const dataToValidate: Partial<Customer> = userData ?? formData;
   if (!dataToValidate?.nameDenomination?.trim() && mode === 'add') {
     toast.error('Please provide customer name');
     return;

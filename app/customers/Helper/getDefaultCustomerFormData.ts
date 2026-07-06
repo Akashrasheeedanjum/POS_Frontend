@@ -1,4 +1,8 @@
-export function getDefaultCustomerFormData(customerCode?: string | number) {
+import { Customer } from '@/lib/actions/customers.actions';
+
+export function getDefaultCustomerFormData(
+  customerCode?: string | number,
+): Partial<Customer> {
   return {
     customerCode: customerCode?.toString() ?? '',
     vatNumber: '',
