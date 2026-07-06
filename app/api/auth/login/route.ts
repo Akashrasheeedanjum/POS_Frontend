@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerApiUrl } from '@/lib/server-api-url';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
+  const apiUrl = getServerApiUrl();
+
   try {
-    const apiUrl = getServerApiUrl();
     const body = await req.json();
 
     const response = await fetch(`${apiUrl}/auth/login`, {
@@ -19,11 +23,14 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(data, { status: response.status });
   } catch (error: any) {
+    console.error('Login proxy error:', { apiUrl, error: error?.message });
+
     return NextResponse.json(
       {
         message:
-          error?.message ||
-          'Cannot reach API server. Check API_URL on Vercel.',
+          'Cannot reach API server. Set API_URL to https://pos-backend-gold.vercel.app/v1 on Vercel (not localhost).',
+        detail: error?.message,
+        apiUrl,
       },
       { status: 502 },
     );

@@ -1,7 +1,16 @@
 const API_URL = (process.env.NEXT_PUBLIC_API_URL || '').trim().replace(/\/$/, '');
 
-if (!API_URL && typeof window !== 'undefined') {
-  console.error('NEXT_PUBLIC_API_URL is not set. Add it in Vercel Environment Variables.');
+const PRODUCTION_API_URL = 'https://pos-backend-gold.vercel.app/v1';
+
+function getClientApiUrl(): string {
+  const url = API_URL || PRODUCTION_API_URL;
+  if (typeof window !== 'undefined' && /localhost|127\.0\.0\.1/i.test(url)) {
+    return url;
+  }
+  if (/localhost|127\.0\.0\.1/i.test(url) && process.env.NODE_ENV === 'production') {
+    return PRODUCTION_API_URL;
+  }
+  return url;
 }
 interface ApiRequestOptions extends RequestInit {
   data?: any;
@@ -30,7 +39,7 @@ export const api = async <T = any>(
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
   // Construct URL with query parameters
-  const url = new URL(`${API_URL}${endpoint}`);
+  const url = new URL(`${getClientApiUrl()}${endpoint}`);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
       url.searchParams.append(key, String(value));
