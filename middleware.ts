@@ -7,12 +7,13 @@ import { jwtVerify, createRemoteJWKSet } from "jose";
 );
 
 // define which routes require authentication
+const isPublicApiRoute = createRouteMatcher(['/api/auth/login']);
+
 const isProtectedRoute = createRouteMatcher([
-  "/dashboard(.*)",   
-  "/folder(.*)",   
-  "/customers(.*)",   
-  "/settings(.*)",   
-  "/api(.*)",
+  '/dashboard(.*)',
+  '/folder(.*)',
+  '/customers(.*)',
+  '/settings(.*)',
 ]);
 
 
@@ -21,12 +22,15 @@ const isLoggedIn = createRouteMatcher([
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
-  const { userId,  isAuthenticated, getToken  } = await auth()
+  if (isPublicApiRoute(req)) {
+    return NextResponse.next();
+  }
 
+  const { userId, isAuthenticated, getToken } = await auth();
 
   // logic to check if user is not loggedIn then he would do to login page
   if ((!isAuthenticated || !userId) && isProtectedRoute(req)) {
-    return NextResponse.redirect(new URL("/", req.url));
+    return NextResponse.redirect(new URL('/', req.url));
   }
   if (isAuthenticated && userId && isLoggedIn(req)) {
     return NextResponse.redirect(new URL("/dashboard/overview", req.url));
