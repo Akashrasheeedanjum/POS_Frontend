@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { jwtVerify, createRemoteJWKSet } from "jose";
 
   const JWKS = createRemoteJWKSet(
-  new URL(`${process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}/.well-known/jwks.json`)
+  new URL(`${(process.env.NEXT_PUBLIC_CLERK_FRONTEND_API || '').trim()}/.well-known/jwks.json`)
 );
 
 // define which routes require authentication

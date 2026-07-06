@@ -67,37 +67,53 @@ export default function UserAuthForm() {
   });
 
   const onSubmit = async (data: UserFormValue) => {
+    const apiUrl = (process.env.NEXT_PUBLIC_API_URL || '').trim().replace(/\/$/, '');
+    if (!apiUrl) {
+      toast.error('API URL is not configured. Set NEXT_PUBLIC_API_URL in Vercel.');
+      return;
+    }
+
+    if (!isLoaded || !signIn) {
+      toast.error('Auth is still loading. Please wait and try again.');
+      return;
+    }
 
     setLoading(true);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: data?.name, password: data?.password}),
+      const res = await fetch(`${apiUrl}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: data?.name, password: data?.password }),
       });
 
       const result = await res.json();
-      if (!res.ok) throw new Error(result.message || "Login failed");
-
-      console.log('result', result)
-      await signOut();
-      // // Here you get JWT from your NestJS backend
-      const clerkSignInToken  = result?.clerkSignInToken ;
-      const exchange = await signIn?.create({ strategy: "ticket", ticket: clerkSignInToken });
-
-      if(clerkSignInToken && exchange){
-
-        // Exchange the signInToken for a session
-        // Activate the new session
-        await setActive({ session: exchange?.createdSessionId });
-        router.push("/dashboard/overview");
-        toast.success('Login Successful!')
+      if (!res.ok) {
+        throw new Error(result.message || 'Invalid name or password');
       }
 
+      await signOut();
+
+      const clerkSignInToken = result?.clerkSignInToken;
+      if (!clerkSignInToken) {
+        throw new Error('Login succeeded but Clerk token was missing from API response');
+      }
+
+      const exchange = await signIn.create({
+        strategy: 'ticket',
+        ticket: clerkSignInToken,
+      });
+
+      if (!exchange?.createdSessionId) {
+        throw new Error('Clerk session could not be created');
+      }
+
+      await setActive({ session: exchange.createdSessionId });
+      router.push('/dashboard/overview');
+      toast.success('Login Successful!');
     } catch (err: any) {
-      console.error('Error while login!', err)
-      toast.error('Error while login!')
+      console.error('Error while login!', err);
+      toast.error(err?.message || err?.errors?.[0]?.message || 'Error while login!');
     } finally {
       setLoading(false);
     }

@@ -1,4 +1,8 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || '').trim().replace(/\/$/, '');
+
+if (!API_URL && typeof window !== 'undefined') {
+  console.error('NEXT_PUBLIC_API_URL is not set. Add it in Vercel Environment Variables.');
+}
 interface ApiRequestOptions extends RequestInit {
   data?: any;
   params?: Record<string, string | number | boolean>;
