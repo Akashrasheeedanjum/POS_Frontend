@@ -67,12 +67,6 @@ export default function UserAuthForm() {
   });
 
   const onSubmit = async (data: UserFormValue) => {
-    const apiUrl = (process.env.NEXT_PUBLIC_API_URL || '').trim().replace(/\/$/, '');
-    if (!apiUrl) {
-      toast.error('API URL is not configured. Set NEXT_PUBLIC_API_URL in Vercel.');
-      return;
-    }
-
     if (!isLoaded || !signIn) {
       toast.error('Auth is still loading. Please wait and try again.');
       return;
@@ -81,7 +75,7 @@ export default function UserAuthForm() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${apiUrl}/auth/login`, {
+      const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: data?.name, password: data?.password }),
@@ -113,7 +107,11 @@ export default function UserAuthForm() {
       toast.success('Login Successful!');
     } catch (err: any) {
       console.error('Error while login!', err);
-      toast.error(err?.message || err?.errors?.[0]?.message || 'Error while login!');
+      const message =
+        err?.message === 'Failed to fetch'
+          ? 'Cannot reach server. Redeploy frontend after setting API_URL on Vercel.'
+          : err?.message || err?.errors?.[0]?.message || 'Error while login!';
+      toast.error(message);
     } finally {
       setLoading(false);
     }
