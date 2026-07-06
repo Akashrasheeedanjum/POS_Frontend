@@ -945,29 +945,34 @@ function SidebarWithContent({
         <SidebarRail />
       </Sidebar>
 
-      <SidebarInset className={`transition-all duration-300 w-full  max-w-full
-    ${open ?
-          '  md:!max-w-[76%] lg:!max-w-[81%] xl:!max-w-[81%] 2xl:!max-w-[87%]'
-          :
-          '  md:!max-w-[99%] lg:!max-w-[98%] xl:!max-w-[96%] 2xl:!max-w-[98%]'
-        }
-       
-  `}>
-        <header className="flex h-16 shrink-0 items-center justify-between gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
-            <Breadcrumbs />
+      <SidebarInset
+        className={`flex min-h-dvh w-full min-w-0 max-w-full flex-1 flex-col transition-all duration-300
+    ${
+      open
+        ? 'md:!max-w-[76%] lg:!max-w-[81%] xl:!max-w-[81%] 2xl:!max-w-[87%]'
+        : 'md:!max-w-[99%] lg:!max-w-[98%] xl:!max-w-[96%] 2xl:!max-w-[98%]'
+    }
+  `}
+      >
+        <header className="flex h-14 shrink-0 items-center justify-between gap-1 px-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 sm:h-16 sm:gap-2 sm:px-4">
+          <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-2">
+            <SidebarTrigger className="-ml-1 shrink-0" />
+            <Separator orientation="vertical" className="mr-1 hidden h-4 sm:mr-2 sm:block" />
+            <div className="min-w-0 truncate">
+              <Breadcrumbs />
+            </div>
           </div>
           <div className="hidden w-1/3 items-center gap-2 px-4 md:flex">
             <SearchInput />
           </div>
-          <div className="flex items-center gap-2 px-4">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2 sm:px-2">
             <UserNav />
             <ThemeToggle />
           </div>
         </header>
-        {children}
+        <div className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto">
+          {children}
+        </div>
       </SidebarInset>
     </>
   );

@@ -31,7 +31,7 @@ export function Breadcrumbs() {
               </BreadcrumbSeparator>
             )}
             {index === items.length - 1 && (
-              <BreadcrumbPage>{item.title}</BreadcrumbPage>
+              <BreadcrumbPage className="truncate max-w-[40vw] sm:max-w-none">{item.title}</BreadcrumbPage>
             )}
           </Fragment>
         ))}

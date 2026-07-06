@@ -193,7 +193,7 @@ const CustomerPageContent = () => {
 
   return (
 <>
-   <div className=" h-[calc(100dvh-56px)] overflow-y-auto p-4 md:px-4">
+   <div className="h-[calc(100dvh-3.5rem)] overflow-y-auto p-3 sm:h-[calc(100dvh-4rem)] sm:p-4 md:px-4">
      <ButtonsSection />
      <SearchFilters />
      <CustomerTable 

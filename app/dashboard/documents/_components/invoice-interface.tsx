@@ -565,7 +565,8 @@ console.log("selectedTicket-->", selectedTicket)
         <div className="flex-1 flex flex-col min-w-0 ">
           {/* Data Table */}
           <div className="flex-1 overflow-y-auto min-h-[200px]">
-            <div className="min-w-[800px] lg:min-w-0 ">
+            <div className="overflow-x-auto">
+            <div className="min-w-[640px] lg:min-w-0">
               <table className="w-full">
                 <thead className="bg-gray-200 sticky top-0">
                   <tr>
@@ -672,6 +673,7 @@ console.log("selectedTicket-->", selectedTicket)
                   ))}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
           {/* Bottom Pricing Section */}

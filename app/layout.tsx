@@ -2,7 +2,7 @@
 import Providers from '@/components/layout/providers';
 import { LayoutWrapper } from '@/components/LayoutWrapper';
 import { Toaster } from '@/components/ui/sonner';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 // import { Lato } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
@@ -10,8 +10,14 @@ import { ClerkProvider } from "@clerk/nextjs";
 import ThemeProvider from '@/components/layout/ThemeToggle/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Next Shadcn',
-  description: 'Basic dashboard with Next.js and Shadcn'
+  title: 'Lahore POS',
+  description: 'Point of sale for scrap, production, and retail sales'
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5
 };
 
 // const lato = Lato({
@@ -34,7 +40,7 @@ export default async function RootLayout({
       // className={`${lato.className}`}
       suppressHydrationWarning={true}
     >
-        <body> 
+        <body className="min-h-dvh overflow-x-hidden antialiased">
        <ThemeProvider attribute="class" defaultTheme="system" enableSystem> 
       <LayoutWrapper>
         <NextTopLoader showSpinner={false} />

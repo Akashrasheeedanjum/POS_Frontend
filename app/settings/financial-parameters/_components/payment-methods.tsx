@@ -223,7 +223,7 @@ export default function PaymentMethods({
                 <DialogDescription>Enter details for new payment method</DialogDescription>
               </DialogHeader>
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-3">
+              <div className="grid grid-cols-1 items-center gap-3 sm:grid-cols-4">
                 <Label htmlFor="methodName" className="col-span-1 text-start">
                   Method Name
                 </Label>

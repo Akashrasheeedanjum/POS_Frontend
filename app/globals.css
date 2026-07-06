@@ -226,3 +226,13 @@ input[type='number'] {
   animation: spin-clockwise var(--spin-duration) linear infinite;
   display: inline-block; /* helps with inline elements */
 }
+
+@layer utilities {
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

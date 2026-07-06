@@ -88,7 +88,7 @@ const DataTable = ({
 {/* resizeable table */}
   {/* <div ref={tableRef} className="w-[280px] LMB:w-[400px] ELMB:w-[600px] md:w-[500px] lg:w-[900px] rounded-md border overflow-x-auto overflow-y-scroll scrollbar-custom h-[400px]"> */}
   {/* <div ref={tableRef} className={`${open ? 'w-[280px] LMB:w-[400px] ELMB:w-[600px] md:w-[475px] lg:w-[730px] NLP:w-[960px] LS:w-[1150px] ELS:w-[1300px]': 'w-[280px] LMB:w-[400px] ELMB:w-[600px] md:w-[680px] lg:w-[950px] NLP:w-[1200px] LS:w-[1350px] ELS:w-[1500px]'} rounded-md border overflow-x-auto overflow-y-scroll  h-[400px]`}> */}
-  <div ref={tableRef} className={`w-full rounded-md border overflow-x-auto overflow-y-scroll scrollbar-custom  max-h-full ${smallTablesPaths.some(path => pathname.includes(path)) ? 'h-[200px]': 'h-[400px]'}`}>
+  <div ref={tableRef} className={`w-full rounded-md border overflow-x-auto overflow-y-auto scrollbar-custom max-h-full ${smallTablesPaths.some(path => pathname.includes(path)) ? 'h-[min(200px,40vh)] sm:h-[200px]': 'h-[min(400px,55vh)] sm:h-[400px]'}`}>
     
     {isUserLoading ? (
         <div className='w-full h-full flex flex-col justify-center items-center'>

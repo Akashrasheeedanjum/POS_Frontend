@@ -10,7 +10,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
-import { useSidebar } from '@/components/ui/sidebar';
 import { transformSearchFieldValue } from '../Helper/transformSearchFieldValue';
 import { CustomSelect } from '@/components/custom-select';
 import { AppDispatch, RootState } from '@/app/Redux/store';
@@ -93,15 +92,13 @@ if(!searchFieldValue?.trim() || !searchFilterField){
     
   }
 
-  const { open } = useSidebar(); 
-
   return (
     <>
-<div className='my-4 flex flex-col ELMB:items-center md:items-start lg:flex-row w-full'>
-  <div className='flex flex-col ELMB:w-[50%] xl:w-[25%]'>
-    <p className='font-semibold'>List Customers by city</p>
-    <div className='mt-2 flex items-center gap-4'>
-  <Label className='font-medium' htmlFor="cityFilter">City</Label>
+<div className="my-4 flex w-full flex-col gap-4 lg:flex-row">
+  <div className="flex w-full flex-col lg:w-[25%] xl:w-[25%]">
+    <p className="font-semibold">List Customers by city</p>
+    <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+  <Label className="shrink-0 font-medium" htmlFor="cityFilter">City</Label>
   <div className='w-full'>
   <CustomSelect 
   extraOption={{ label: "All Cities", value: "" }} 
@@ -112,12 +109,9 @@ if(!searchFieldValue?.trim() || !searchFilterField){
   </div>
 
   <div className="hidden md:block mx-4 w-px self-stretch bg-[#F0ECEA]" />
-  <div className={`mt-4 lg:mt-0 flex flex-col ELMB:w-[50%] 
-  ${open ? 'md:w-[90%] lg:w-[60%]' : 'md:w-[60%] lg:w-[59%] xl:w-[60%]'}
-   lg:mr-3 xl:mr-0
-  `}>
-    <p className='font-semibold'>Search Filter</p>
-    <div className='mt-2 flex flex-col md:flex-row  items-center gap-4'>
+  <div className={`mt-0 flex w-full flex-col lg:flex-1 lg:mr-3 xl:mr-0`}>
+    <p className="font-semibold">Search Filter</p>
+    <div className="mt-2 flex flex-col items-stretch gap-3 sm:gap-4 md:flex-row md:items-center">
   {/* <Label className='font-medium' htmlFor="cityFilter">City</Label> */}
   <div className='w-full md:w-[50%]'>
   <Select value={searchFilterField} onValueChange={(value) => setSearchFilterField(value)}>
@@ -160,9 +154,9 @@ if(!searchFieldValue?.trim() || !searchFilterField){
     />
     }
   </div>
-  <Button 
+  <Button
   onClick={handleSearch}
-  className='w-[50%] md:w-[25%]'><FileSearch className="mr-2 h-4 w-4" /> Find </Button>
+  className="w-full md:w-auto md:min-w-[7rem]"><FileSearch className="mr-2 h-4 w-4" /> Find </Button>
   </div>
   </div>
 

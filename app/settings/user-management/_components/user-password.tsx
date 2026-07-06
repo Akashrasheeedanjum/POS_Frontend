@@ -171,7 +171,7 @@ export default function UserPassword({ onUserSelect, selectedUser, onUpdateUser 
               <DialogDescription>Enter the details of the new user.</DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-4 items-center gap-3">
+              <div className="grid grid-cols-1 items-center gap-3 sm:grid-cols-4">
                 <Label htmlFor="name" className="col-span-1 text-start">
                   Name
                 </Label>
@@ -182,7 +182,7 @@ export default function UserPassword({ onUserSelect, selectedUser, onUpdateUser 
                   className="col-span-3"
                 />
               </div>
-              <div className="grid grid-cols-4 items-center gap-3">
+              <div className="grid grid-cols-1 items-center gap-3 sm:grid-cols-4">
                 <Label htmlFor="password" className="text-start col-span-1">
                   Password
                 </Label>
@@ -194,7 +194,7 @@ export default function UserPassword({ onUserSelect, selectedUser, onUpdateUser 
                   className="col-span-3"
                 />
               </div>
-              <div className="grid grid-cols-4 items-center gap-3">
+              <div className="grid grid-cols-1 items-center gap-3 sm:grid-cols-4">
                 <Label htmlFor="role" className="text-start col-span-1">
                   Role
                 </Label>
@@ -267,7 +267,7 @@ export default function UserPassword({ onUserSelect, selectedUser, onUpdateUser 
             <DialogDescription>Update the user details.</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
+            <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-4">
               <Label htmlFor="edit-name" className="text-right">
                 Name
               </Label>
@@ -278,7 +278,7 @@ export default function UserPassword({ onUserSelect, selectedUser, onUpdateUser 
                 className="col-span-3"
               />
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
+            <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-4">
               <Label htmlFor="edit-password" className="text-right">
                 Password
               </Label>
@@ -290,7 +290,7 @@ export default function UserPassword({ onUserSelect, selectedUser, onUpdateUser 
                 className="col-span-3"
               />
             </div>
-            <div className="grid grid-cols-4 items-center gap-4">
+            <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-4">
               <Label htmlFor="edit-role" className="text-right">
                 Role
               </Label>

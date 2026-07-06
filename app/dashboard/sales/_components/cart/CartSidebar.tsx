@@ -263,7 +263,7 @@ useEffect(() => {
         </div>
 
         {/* Cart Items - Scrollable with max height */}
-        <div className="h-[16rem] max-h-64 lg:max-h-[460px] xl:max-h-[450px] 2xl:max-h-[510px]  flex-1 overflow-y-auto px-2 py-1  ">
+        <div className="min-h-[6rem] max-h-40 flex-1 overflow-y-auto px-2 py-1 sm:max-h-48 lg:max-h-[460px] xl:max-h-[450px] 2xl:max-h-[510px]">
           {cartItems.length === 0 ? (
             <div className="py-8 text-center">
               <ShoppingCart className="mx-auto mb-3 h-12 w-12 text-slate-400" />
@@ -284,8 +284,8 @@ useEffect(() => {
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-auto  border-t   p-4 space-y-2   ">
-          <div className="grid grid-cols-4 gap-2">
+        <div className="mt-auto space-y-2 border-t p-2 sm:p-4">
+          <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4 sm:gap-2">
             <TooltipProvider delayDuration={100}>
               <Tooltip>
                 <TooltipTrigger asChild>

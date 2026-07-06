@@ -135,7 +135,7 @@ const MainContent = () => {
         </div>
       </div>
       {/* Mobile/Tablet Layout - Vertical Stack */}
-      <div className="flex flex-1 flex-col overflow-hidden lg:hidden">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:hidden">
         {/* Categories - Horizontal scroll on mobile */}
         <div className="flex-shrink-0">
           <CategorySidebar
@@ -150,7 +150,7 @@ const MainContent = () => {
         </div>
 
         {/* Products Grid - Scrollable to show all products */}
-        <div className="flex-1 overflow-hidden">
+        <div className="min-h-0 flex-1 overflow-y-auto">
           <ProductGrid
             products={filteredProducts}
             onAddToCart={addToCart}
@@ -158,8 +158,8 @@ const MainContent = () => {
           />
         </div>
 
-        {/* Cart - Fixed height at bottom */}
-        <div className="max-h-[50vh] flex-shrink-0">
+        {/* Cart - Flexible height at bottom */}
+        <div className="flex max-h-[48vh] min-h-[200px] flex-shrink-0 flex-col sm:max-h-[52vh]">
           <CartSidebar
             allProducts={products}
             cartItems={cartItems}
